@@ -26,7 +26,7 @@ mamba activate snakemake
 
 ## Running the workflow
 
-Input files are configured in *config/config.yaml*. This workflow includes sample data for Aluminium computed with CASTEP;
+Input files are configured in *config/config.yaml*. This workflow includes sample data for Si computed with CASTEP;
 to use your own data and modify other workflow parameters, either edit the *config.yaml* and run
 
 ```
