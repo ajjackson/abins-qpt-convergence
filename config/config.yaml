@@ -1,0 +1,32 @@
+# Series of realspace cutoff values - these will be converted to
+# q-point meshes automatically. Consider using kgrid to select
+# a suitable set of values.
+cutoffs:
+    - 10.
+    - 20.
+    - 40.
+    - 60.
+
+# Abins parameters: see https://docs.mantidproject.org/nightly/algorithms/Abins-v1.html
+# For now, AbInitioProgram: "FORCECONSTANTS" is hard-coded and other options unusable
+abins:
+    VibrationalOrPhononFile: "test_data/si.castep_bin"
+    TemperatureInKelvin: 10
+    QuantumOrderEventsNumber: "2"
+    Autoconvolution: True
+    ScaleByCrossSection: "Total"
+    Instrument: "TOSCA"
+    Setting: "All detectors (TOSCA)"
+    EnergyUnits: "cm-1"
+
+
+binning:
+    x_min: 0              # Minimum frequency in cm-1
+    x_max: 4000           # Maximum frequency in cm-1
+    n_bins: 4001
+
+plot:
+    figsize: [4, 4]               # Figure size in inches
+    x_min: 0                      # Minimum frequency in EnergyUnits
+    x_max: 1000                   # Maximum frequency in EnergyUnits
+    style: "tableau-colorblind10" # Matplotlib stylesheet
