@@ -7,6 +7,7 @@ cutoffs = snakemake.params["cutoffs"]
 config = snakemake.params["config"]
 energy_unit = snakemake.params["energy_unit"]
 
+
 def read_csv(filename: str) -> np.ndarray:
     """Read csv file from Abins / SaveAscii"""
     return np.loadtxt(filename, delimiter=",", unpack=True, usecols=[0, 1], skiprows=2)
@@ -21,7 +22,7 @@ for cutoff, filename in zip(cutoffs, snakemake.input):
 ax.set_xlim(config["x_min"], config["x_max"])
 ax.set_xlabel(f"Energy transfer / {energy_unit}")
 
-ax.set_yticklabels([''])
+ax.set_yticklabels([""])
 ax.set_ylabel("Intensity")
 
 ax.legend()

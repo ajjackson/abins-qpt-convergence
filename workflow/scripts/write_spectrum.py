@@ -14,7 +14,9 @@ abins_kwargs = abins_kwargs | dict(
     SaveAscii=False,
 )
 
-abins.parameters.sampling["force_constants"]["qpt_cutoff"] = float(snakemake.params.cutoff)
+abins.parameters.sampling["force_constants"]["qpt_cutoff"] = float(
+    snakemake.params.cutoff
+)
 mantid.simpleapi.Abins(**abins_kwargs)  # Run Abins, creating new workspace
 
 mantid.simpleapi.SaveAscii(

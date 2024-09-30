@@ -1,14 +1,17 @@
 from snakemake.utils import Paramspace
 
+
 configfile: "config/config.yaml"
+
 
 rule all:
     input:
         "results/qpt_convergence.pdf",
-            
+
+
 rule write_spectrum:
     input:
-        config["abins"]["VibrationalOrPhononFile"]
+        config["abins"]["VibrationalOrPhononFile"],
     output:
         "results/abins_{cutoff}.csv",
     params:
@@ -21,16 +24,17 @@ rule write_spectrum:
     script:
         "scripts/write_spectrum.py"
 
+
 rule plot_convergence:
     input:
-        expand("results/abins_{cutoff}.csv", cutoff=config["cutoffs"])
+        expand("results/abins_{cutoff}.csv", cutoff=config["cutoffs"]),
     output:
         "results/qpt_convergence.pdf",
         "results/qpt_convergence.png",
     params:
         cutoffs=config["cutoffs"],
         config=config["plot"],
-        energy_unit=config["abins"]["EnergyUnits"]
+        energy_unit=config["abins"]["EnergyUnits"],
     conda:
         "envs/mantid.yml"
     script:
