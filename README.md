@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/865356741.svg)](https://doi.org/10.5281/zenodo.13902655)
+
 # Abins q-point convergence
 
 A workflow to examine q-point convergence of simulated INS spectra using AbINS
